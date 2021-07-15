@@ -4,11 +4,14 @@ import { Container, LabelText, NextButton } from './QueueHeader.styles';
 interface QueueHeaderProps {
   callQueue: Call[];
   setCallQueue: () => void;
+  setCurrentCall: () => void;
 }
 
-export const QueueHeader = ({ callQueue, setCallQueue }: QueueHeaderProps) => {
+export const QueueHeader = ({ callQueue, setCallQueue, setCurrentCall }: QueueHeaderProps) => {
   const getNextCall = () => {
-    setCallQueue(callQueue.splice(1));
+    const newQueue = [...callQueue]
+    setCurrentCall(newQueue.shift())
+    setCallQueue(newQueue);
   };
 
   return (

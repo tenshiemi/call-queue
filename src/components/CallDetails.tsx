@@ -9,7 +9,7 @@ const formatPhone = (phone: string) => {
 }
 
 const renderCall = (call: Call) => {
-  const time = format(new Date(call.timestamp), "h:maaa");
+  const time = format(new Date(call.timestamp), "h:mmaaa");
 
   return (
     <div>
